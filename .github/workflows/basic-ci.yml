@@ -1,0 +1,33 @@
+name: Basic CI Workflow
+
+on:
+  push:
+    branches:
+      - main # Trigger on pushes to the main branch
+  pull_request:
+    branches:
+      - main # Trigger on pull requests targeting the main branch
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest # Run on a fresh Ubuntu virtual machine
+
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4 # Action to get your code into the runner
+
+      - name: Setup Node.js (for demonstration)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # Specify Node.js version
+
+      - name: Simulate installing dependencies
+        run: |
+          echo "Simulating npm install..."
+          # In a real project, this would be: npm install
+
+      - name: Simulate running tests
+        run: |
+          echo "Simulating npm test..."
+          # In a real project, this would be: npm test
+          exit 0 # Ensure this step passes for the lab
